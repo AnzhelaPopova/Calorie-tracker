@@ -7,6 +7,23 @@
   const passwordRepeatInput = document.getElementById("registration__text_passwordRepeat");
   const submitBtn = document.getElementById("registration__submit");
   
+  function validateDate(input) {
+    let enteredDate = new Date(input.value);
+    const minDate = new Date(input.min);
+    const maxDate = new Date(input.max);
+    if (enteredDate < minDate || enteredDate > maxDate) {
+      alert("Неверная дата рождения!");
+      input.value = ""; // Очистить поле ввода
+    }
+  }
+
+  function validateEmail(input) {
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(input.value)) {
+      alert("Неправильный формат электронной почты!");
+      input.value = ""; // Очистить поле ввода
+    }
+  }
 
   function registrationAdd() { 
     const name = nameInput.value[0].toUpperCase() + nameInput.value.slice(1); 
@@ -15,6 +32,8 @@
     const email = emailInput.value; 
     const password = passwordInput.value; 
     const passwordRepeat = passwordRepeatInput.value; 
+
+   
   
     function checkPassword() { 
       // if (password === '' || passwordRepeat === '') { 

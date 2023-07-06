@@ -32,15 +32,15 @@
             onKeyUp="this.value=this.value.trim();if(/[^a-zA-Zа-яА-ЯёЁ]/i.test(this.value)){this.value='';}"
             placeholder="Фамилия" name="surname" required/>
           <div>
-            <input type="date" id="registration__text_bday" name="bday"
-              class="registration__text_bday registration__text" required/>
+            <input type="date" id="registration__text_bday" name="bday" min="1945-01-01" max="2009-12-31"
+              class="registration__text_bday registration__text" onchange="validateDate(this)" required />
           </div>
           <input class="registration__text registration__text_email" type="email"
-            onKeyUp="this.value = this.value.replace(/[^a-zA-Z0-9@._-]/g, '');" id="registration__text_email"
-            placeholder="E-mail" name="email" required/>
+           id="registration__text_email" onchange="validateEmail(this)"
+            placeholder="E-mail" name="email"  size="30" required/>
           <label for="password"></label>
           <input class="registration__text registration__text_password" type="password" id="registration__text_password"
-            placeholder="Пароль" name="password" required/>
+            placeholder="Пароль" name="password" minlength="6" maxlength="12" required/>
           <label for="passwordRepeat"></label>
           <input class="registration__text" id="registration__text_passwordRepeat" type="password"
             placeholder="Повторите пароль" name="passwordRepeat" required/>

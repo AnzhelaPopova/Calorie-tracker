@@ -26,8 +26,8 @@
   }
 
   function registrationAdd() { 
-    const name = nameInput.value[0].toUpperCase() + nameInput.value.slice(1); 
-    const surname = surnameInput.value[0].toUpperCase() + surnameInput.value.slice(1); 
+    const name = nameInput.value[0].toUpperCase() + nameInput.value.slice(1).toLowerCase(); 
+    const surname = surnameInput.value[0].toUpperCase() + surnameInput.value.slice(1).toLowerCase(); 
     const bday = bdayInput.value; 
     const email = emailInput.value; 
     const password = passwordInput.value; 

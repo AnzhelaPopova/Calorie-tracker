@@ -22,7 +22,7 @@ function loginUser() {
       window.localStorage.setItem(`loged`, `${loged}`);
       userFound = true; // если пользователь найден, меняем значение переменной
 
-      document.getElementById("customization__text_name").value = userData[i].name[0].toUpperCase() + userData[i].name.slice(1);
+      document.getElementById("customization__text_name").value = userData[i].name[0].toUpperCase() + userData[i].name.slice(1).toLowerCase();
       let InputName = document.getElementById("customization__text_name").value;
       document.getElementById("customization__text_surname").value =
         userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1);
@@ -37,11 +37,11 @@ function loginUser() {
         userData[i].password;
       let InputPassword = document.getElementById("customization__text_password").value
 
-      var now = new Date(); //Текущая дата 
-      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени 
-      var dob = new Date(userData[i].bday); //Дата рождения 
-      var dobnow = new Date(today.getFullYear(), dob.getMonth(), dob.getDate()); //ДР в текущем году 
-      var age; //Возраст 
+      let now = new Date(); //Текущая дата 
+      let today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени 
+      let dob = new Date(userData[i].bday); //Дата рождения 
+      let dobnow = new Date(today.getFullYear(), dob.getMonth(), dob.getDate()); //ДР в текущем году 
+      let age; //Возраст 
 
       //Возраст = текущий год - год рождения 
       age = today.getFullYear() - dob.getFullYear();
@@ -51,7 +51,7 @@ function loginUser() {
       }
 
       currentUser.name = `${userData[i].name[0].toUpperCase() + userData[i].name.slice(1)}`;
-      currentUser.surname = `${(userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1))}`;
+      currentUser.surname = `${(userData[i].surname[0].toUpperCase() + userData[i].surname.slice(1).toLowerCase())}`;
       currentUser.age = age;
       currentUser.email = emailInputValue;
 
@@ -80,8 +80,8 @@ function loginUser() {
 function customizationSave() {
   const userData = JSON.parse(localStorage.getItem('userData'));
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  let InputName = document.getElementById("customization__text_name").value[0].toUpperCase() + document.getElementById("customization__text_name").value.slice(1);
-  let InputSurname = document.getElementById("customization__text_surname").value[0].toUpperCase() + document.getElementById("customization__text_surname").value.slice(1);
+  let InputName = document.getElementById("customization__text_name").value[0].toUpperCase() + document.getElementById("customization__text_name").value.slice(1).toLowerCase();
+  let InputSurname = document.getElementById("customization__text_surname").value[0].toUpperCase() + document.getElementById("customization__text_surname").value.slice(1).toLowerCase();
   let InputBday = document.getElementById("customization__text_bday").value;
   let InputPassword = document.getElementById("customization__text_password").value;
   let InputEmail = document.getElementById("customization__text_email").value;
@@ -104,11 +104,11 @@ function customizationSave() {
         if (userData[i].bday !== (InputBday && "")) {
           console.log(InputBday);
           userData[i].bday = InputBday; // присваиваем новое значение
-          var now = new Date(); //Текущая дата 
-          var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени 
-          var dob = new Date(InputBday); //Дата рождения 
-          var dobnow = new Date(today.getFullYear(), dob.getMonth(), dob.getDate()); //ДР в текущем году 
-          var age; //Возраст 
+          let now = new Date(); //Текущая дата 
+          let today = new Date(now.getFullYear(), now.getMonth(), now.getDate()); //Текущя дата без времени 
+          let dob = new Date(InputBday); //Дата рождения 
+          let dobnow = new Date(today.getFullYear(), dob.getMonth(), dob.getDate()); //ДР в текущем году 
+          let age; //Возраст 
 
           //Возраст = текущий год - год рождения 
           age = today.getFullYear() - dob.getFullYear();
